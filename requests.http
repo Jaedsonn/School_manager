@@ -1,0 +1,96 @@
+### Variables
+@baseUrl = http://localhost:3000/api
+@authToken = {{login.response.body.token}}
+
+### Auth Routes
+
+# @name login
+POST {{baseUrl}}/auth/token
+Content-Type: application/json
+
+{
+    "email": "root@example.com",
+    "password": "admin123"
+}
+
+### User Routes
+
+# Create new user
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+    "username": "test_user",
+    "email": "test@email.com",
+    "password": "123456"
+}
+
+# Login user
+GET {{baseUrl}}/users
+Content-Type: application/json
+
+{
+    "email": "test@email.com",
+    "password": "123456"
+}
+
+# Update user
+PUT {{baseUrl}}/users
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "username": "updated_user",
+    "email": "updated@email.com",
+    "password": "newpassword123"
+}
+
+# Delete user
+DELETE {{baseUrl}}/users
+Authorization: Bearer {{authToken}}
+
+### Student Routes
+
+# Get all student
+GET {{baseUrl}}/student
+Authorization: Bearer {{authToken}}
+
+# Create new student
+POST {{baseUrl}}/student
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+      "nome": "Jaedson",
+      "sobrenome": "Macedo",
+      "idade": 20,
+      "peso": 65.5,
+      "altura": 1.75,
+      "email": "jaedson@example.com",
+      "data_nascimento": "2009-03-15",
+      "password": "123456"
+}
+
+# Get student by ID
+GET {{baseUrl}}/student/1
+Authorization: Bearer {{authToken}}
+
+# Update student
+PUT {{baseUrl}}/student/1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+      "nome": "Jaedson",
+      "sobrenome": "Macedo",
+      "idade": 20,
+      "peso": 65.5,
+      "altura": 1.75,
+      "email": "jaedson@example.com",
+      "data_nascimento": "2009-03-15",
+      "password": "123456"
+}
+
+# Delete student
+DELETE {{baseUrl}}/student/1
+Authorization: Bearer {{authToken}}
