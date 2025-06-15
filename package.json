@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/app.js",
-    "build": "webpack --config webpack.config.js",
+    "build": "npm i && webpack --config webpack.config.js",
     "start": "node dist/server.js",
     "migrate": "npx sequelize db:migrate",
     "migrate:undo": "npx sequelize db:migrate:undo:all",
