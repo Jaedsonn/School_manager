@@ -10,7 +10,6 @@ import { createToken } from "../../controllers/token";
 
 const router = Router();
 
-// All routes are prefixed with /api/users
 router.post('/users/login', get_user, createToken);
 
 router.route('/users')

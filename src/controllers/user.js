@@ -37,7 +37,7 @@ export async function get_user(req, res, next) {
       email: user.dataValues.email,
       password: req.body.password,
     }
-    next();
+    return next();
   } catch (error) {
     console.error("Erro ao obter usuários:", error);
     return res.status(500).json({ error: "Erro ao obter usuários", message: error?.message });
