@@ -11,9 +11,10 @@ import { createToken } from "../../controllers/token";
 const router = Router();
 
 // All routes are prefixed with /api/users
+router.post('/users/login', get_user, createToken);
+
 router.route('/users')
   .post(create_user)
-  .get(get_user, createToken)
   .put(jwt_verify, update_user)
   .delete(jwt_verify, delete_user);
 
